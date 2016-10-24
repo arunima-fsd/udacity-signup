@@ -52,11 +52,11 @@ class MainPage(Handler):
     							else:
     								self.render("welcome.html", user = user)
     						else:
-    							self.render("index.html", pass_error_msg_2 = "Your passwords didn't match", user = user, test1 = "autofocus", email =email)
+    							self.render("index.html", pass_error_msg_2 = "Your passwords didn't match", user = user, test2 = "autofocus", email =email)
     					else:
     						self.render("index.html", pass_error_msg = "Invalid password", user = user, test2 = "autofocus", email = email)
     				else:
-    					self.render("index.html", pass_error_msg_2 = "Please repeat the password", user = user, test3 ="autofocus", email = email)
+    					self.render("index.html", pass_error_msg_2 = "Please repeat the password", user = user, test2 = "autofocus", email = email)
     			else:
     				self.render("index.html", pass_error_msg = "Please enter password", user= user, test2 = "autofocus", email = email)
     		else:
