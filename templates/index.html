@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta name="description" content="udacity user signup homework"/>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    <meta charset="utf-8">
+
+	<title>Udacity User Signup</title>
+
+	<style>
+		{% include "style.css" %}
+	</style>
+</head>
+
+<body>
+	<div class="container">
+		<form method="post">
+			<fieldset>
+				<legend><h2> User Sign Up</h2></legend>
+				<div>
+				   
+				    <p>
+				    	<label class="field" for="username"> Username </label>
+						<input autofocus type="text" name="username" placeholder="user name" value="">
+				    </p>
+				    <p>
+				    	<label class="field" for="password">Password</label>
+						<input type="text" name="password" placeholder="password" value="">
+				    </p>
+				    <p>
+				    	<label class="field" for="verpassword">Verify Password</label>
+						<input type="text" name="verpassword" placeholder="repeat password" value="">
+				    </p>
+				    <p>
+				    	<label class="field" for="email">Email (optional)</label>
+						<input type="text" name="email" placeholder="email id" value="">
+				    </p>
+	
+					<button class="button">Submit</button>
+				</div>
+
+
+
+			</fieldset>
+		</form>
+	</div>
+
+</body>
+</html>
