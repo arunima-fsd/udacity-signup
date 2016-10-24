@@ -46,11 +46,11 @@ class MainPage(Handler):
     						if(regex.same_password(password, verpassword)):
     							if(email):
     								if(regex.valid_email(email)):
-    									self.render("welcome.html", user = user)
+    									self.redirect("/welcome?username=%s"%user)
     								else:
     									self.render("index.html", email_error_msg = "Invalid email address", user = user, test4= "autofocus")
     							else:
-    								self.render("welcome.html", user = user)
+    								self.redirect("/welcome?username=%s"%user)
     						else:
     							self.render("index.html", pass_error_msg_2 = "Your passwords didn't match", user = user, test2 = "autofocus", email =email)
     					else:
@@ -66,6 +66,10 @@ class MainPage(Handler):
 
 
 
+class WelcomeHandler(Handler):
+	def get(self):
+		username = self.request.get("username")
+		self.render("welcome.html", user = username)
 
     	
     	
@@ -75,4 +79,5 @@ class MainPage(Handler):
 
 app = webapp2.WSGIApplication([
     ('/', MainPage),
+    ('/welcome', WelcomeHandler)
 ], debug=True)
