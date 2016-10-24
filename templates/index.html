@@ -22,27 +22,27 @@
 				   
 				    <p>
 				    	<label class="field" for="username"> Username </label>
-						<input autofocus type="text" name="username" placeholder="user name" value="">
-						{{ user_error_msg }}
-				    </p>
+						<input {{test1}} type="text" name="username" placeholder="user name" value="{{user}}">
+						<label class="error">{{ user_error_msg }}</label> 
+					</p>
 
 				    <p>
 				    	<label class="field" for="password">Password</label>
-						<input type="password" name="password" placeholder="password" value="">
-						{{ pass_error_msg}}
-				    </p>
+						<input {{test2}} type="password" name="password" placeholder="password" value="{{password}}">
+						<label class="error">{{ pass_error_msg }}</label> 
+					</p>
 
 				    <p>
 				    	<label class="field" for="verpassword">Verify Password</label>
-						<input type="password" name="verpassword" placeholder="repeat password" value="">
-						{{ pass_error_msg_2 }}
+						<input type="password" name="verpassword" placeholder="repeat password" value="{{verpassword}}">
+						<label class="error">{{ pass_error_msg_2 }}</label>
 				    </p>
 
 				    <p>
 				    	<label class="field" for="email">Email (optional)</label>
-						<input type="text" name="email" placeholder="email address" value="">
-						{{ email_error_msg }}
-				    </p>
+						<input {{test4}} type="text" name="email" placeholder="email address" value="{{email}}">
+						<label class="error">{{ email_error_msg }}</label>
+					</p>
 	
 					<button class="button">Submit</button>
 				</div>

@@ -30,7 +30,7 @@ class Handler(webapp2.RequestHandler):
 
 class MainPage(Handler):
     def get(self):
-        self.render("index.html")
+        self.render("index.html", test1 = "autofocus")
 
     def post(self):
     	user = self.request.get("username")
@@ -40,26 +40,29 @@ class MainPage(Handler):
 
     	if(user):
     		if(regex.valid_username(user)):
-    			if(password and verpassword):
-    				if(regex.valid_password(password)):
-    					if(regex.match_password(password, verpassword)):
-    						if(email):
-    							if(regex.valid_email(email)):
-    								self.render("welcome.html", user = user)
+    			if(password):
+    				if(verpassword):
+    					if(regex.valid_password(password)):
+    						if(regex.same_password(password, verpassword)):
+    							if(email):
+    								if(regex.valid_email(email)):
+    									self.render("welcome.html", user = user)
+    								else:
+    									self.render("index.html", email_error_msg = "Invalid email address", user = user, test4= "autofocus")
     							else:
-    								self.render("index.html", email_error_msg = "Invalid email address")
+    								self.render("welcome.html", user = user)
     						else:
-    							self.render("welcome.html", user = user)
+    							self.render("index.html", pass_error_msg_2 = "Your passwords didn't match", user = user, test1 = "autofocus", email =email)
     					else:
-    						self.render("index.html", pass_error_msg_2 = "Your passwords didn't match")
+    						self.render("index.html", pass_error_msg = "Invalid password", user = user, test2 = "autofocus", email = email)
     				else:
-    					self.render("index.html", pass_error_msg_1 = "Invalid password")
+    					self.render("index.html", pass_error_msg_2 = "Please repeat the password", user = user, test3 ="autofocus", email = email)
     			else:
-    				self.render("index.html", pass_error_msg_1 = "Please enter the password")
+    				self.render("index.html", pass_error_msg = "Please enter password", user= user, test2 = "autofocus", email = email)
     		else:
-    			self.render("index.html", user_error_msg = "Invalid username")
+    			self.render("index.html", user_error_msg = "Invalid username", test1 = "autofocus", email = email)
     	else:
-    		self.render("index.html", user_error_msg = "Please enter user name")
+    		self.render("index.html", user_error_msg = "Please enter user name", test1 = "autofocus", email = email)
 
 
 

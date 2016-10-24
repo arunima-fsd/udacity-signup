@@ -6,18 +6,18 @@ EMAIL_RE = re.compile(r"^[\S]+@[\S]+.[\S]+$")
 
     
 
-def valid_username(self, username):
-    if(USER_RE.match(self.username)):
+def valid_username(username):
+    if(USER_RE.match(username)):
         return True
 
-def valid_password(self, password, verpassword):
-    if(PASS_RE.match(self.password)):
+def valid_password(password):
+    if(PASS_RE.match(password)):
         return True
 
-def valid_email(self, email):
-    if(EMAIL_RE.match(self.email)):
+def valid_email(email):
+    if(EMAIL_RE.match(email)):
         return True
 
-def same_password(self, password, verpassword):
-    if(self.password == self.verpassword):
+def same_password(password, verpassword):
+    if(password == verpassword):
         return True
