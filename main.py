@@ -41,8 +41,8 @@ class MainPage(Handler):
     	if(user):
     		if(regex.valid_username(user)):
     			if(password):
-    				if(verpassword):
-    					if(regex.valid_password(password)):
+    				if(regex.valid_password(password)):
+    					if(verpassword):
     						if(regex.same_password(password, verpassword)):
     							if(email):
     								if(regex.valid_email(email)):
@@ -54,9 +54,9 @@ class MainPage(Handler):
     						else:
     							self.render("index.html", pass_error_msg_2 = "Your passwords didn't match", user = user, test2 = "autofocus", email =email)
     					else:
-    						self.render("index.html", pass_error_msg = "Invalid password", user = user, test2 = "autofocus", email = email)
+    						self.render("index.html", pass_error_msg_2 = "Please repeat the password", user = user, test2 = "autofocus", email = email)
     				else:
-    					self.render("index.html", pass_error_msg_2 = "Please repeat the password", user = user, test2 = "autofocus", email = email)
+    					self.render("index.html", pass_error_msg = "Invalid password", user = user, test2 = "autofocus", email = email)
     			else:
     				self.render("index.html", pass_error_msg = "Please enter password", user= user, test2 = "autofocus", email = email)
     		else:
